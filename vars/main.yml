@@ -1,0 +1,10 @@
+---
+
+sshd__pkgs: [ 'openssh-server' ]
+sshd__service: 'sshd'
+
+
+
+
+sshd__conf_src: 'sshd_config.j2'
+sshd__conf_dest: '/etc/ssh/sshd_config'

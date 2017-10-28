@@ -1,0 +1,6 @@
+---
+
+- import_role:
+    name: 'dep-role-yum'
+  vars:
+    dep_yum__pkgs: '{{ sshd__pkgs }}'

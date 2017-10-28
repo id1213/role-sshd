@@ -1,0 +1,6 @@
+---
+
+- import_role:
+    name: 'dep-role-service'
+  vars:
+    dep_service__name: '{{ sshd__service }}'
