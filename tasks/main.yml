@@ -2,3 +2,4 @@
 
 - import_tasks: 'import-install-pkgs.yml'
 - import_tasks: 'import-service.yml'
+- import_tasks: 'import-conf.yml'

@@ -1,0 +1,66 @@
+{{ ansible_managed | comment }}
+
+
+Protocol {{ sshd__conf_protocol }}
+
+
+{% for item in sshd__conf_port %}
+Port {{ item }}
+{% endfor %}
+
+AddressFamily {{ sshd__conf_addressfamily }}
+{% for item in sshd__conf_listenaddress %}
+ListenAddress {{ item }}
+{% endfor %}
+
+MaxAuthTries {{ sshd__conf_maxauthtries }}
+MaxStartups {{ sshd__conf_maxstartups }}
+LoginGraceTime {{ sshd__conf_logingracetime }}
+
+AuthenticationMethods {{ sshd__conf_authenticationmethods }}
+PasswordAuthentication {{ sshd__conf_passwordauthentication }}
+PermitEmptyPasswords {{ sshd__conf_permitemptypasswords }}
+PubkeyAuthentication {{ sshd__conf_pubkeyauthentication }}
+HostbasedAuthentication {{ sshd__conf_hostbasedauthentication }}
+IgnoreRHosts {{ sshd__conf_ignorerhosts }}
+
+PermitRootLogin {{ sshd__conf_permitrootlogin }}
+
+Compression {{ sshd__conf_compression }}
+
+GatewayPorts {{ sshd__conf_gatewayports }}
+
+AllowAgentForwarding {{ sshd__conf_allowagentforwarding }}
+AllowTcpForwarding {{ sshd__conf_allowtcpforwarding }}
+ClientAliveCountMax {{ sshd__conf_clientalivecountmax }}
+ClientAliveInterval {{ sshd__conf_clientaliveinterval }}
+TcpKeepAlive {{ sshd__conf_tcpkeepalive }}
+PermitTunnel {{ sshd__conf_permittunnel }}
+
+UseDNS {{ sshd__conf_usedns }}
+
+X11Forwarding {{ sshd__conf_x11forwarding }}
+
+PermitUserEnvironment {{ sshd__conf_permituserenvironment }}
+IgnoreUserKnownHosts {{ sshd__conf_ignoreuserknownhosts }}
+
+StrictModes {{ sshd__conf_strictmodes }}
+
+PrintLastLog {{ sshd__conf_printlastlog }}
+PrintMotd {{ sshd__conf_printmotd }}
+LogLevel {{ sshd__conf_loglevel }}
+SyslogFacility {{ sshd__conf_syslogfacility }}
+
+{% if sshd__conf_sftpsubsystem_enabled %}
+Subsystem  {{ sshd__conf_sftpsubsystem_name }} {{ sshd__conf_sftpsubsystem_path }}
+{% endif %}
+
+VersionAddendum {{ sshd__conf_versionaddendum }}
+
+UsePrivilegeSeparation {{ sshd__conf_useprivilegeseparation }}
+
+Ciphers {{ sshd__conf_ciphers | join(',') }}
+
+KexAlgorithms {{ sshd__conf_kexalgorithms | join(',') }}
+
+MACs {{ sshd__conf_macs | join(',') }}

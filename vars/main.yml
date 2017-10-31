@@ -1,10 +1,15 @@
 ---
 
 sshd__pkgs: [ 'openssh-server' ]
-sshd__service: 'sshd'
+sshd__service_name: 'sshd'
 
 
 
 
 sshd__conf_src: 'sshd_config.j2'
 sshd__conf_dest: '/etc/ssh/sshd_config'
+sshd__conf_validate: 'sshd -f %s -T'
+
+
+sshd__conf_sftpsubsystem_path: '/usr/libexec/openssh/sftp-server'
+sshd__conf_sftpsubsystem_name: 'sftp'

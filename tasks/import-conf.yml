@@ -1,0 +1,9 @@
+---
+
+- import_role:
+    name: 'dep-role-conf'
+  vars:
+    dep_conf__src: '{{ sshd__conf_src }}'
+    dep_conf__dest: '{{ sshd__conf_dest }}'
+    dep_conf__validate: '{{ sshd__conf_validate }}'
+    dep_conf__service: '{{ sshd__service_name }}'

@@ -1,0 +1,76 @@
+---
+
+sshd__conf_protocol: '2'
+sshd__conf_port: [ '22' ]
+sshd__conf_addressfamily: 'inet'
+sshd__conf_listenaddress: [ '0.0.0.0' ]
+
+sshd__conf_file_dest: '/etc/ssh/banner'
+sshd__conf_file_src: 'etc/ssh/banner.j2'
+
+sshd__conf_maxauthtries: 1
+sshd__conf_maxstartups: 4
+sshd__conf_logingracetime: '30'
+
+sshd__conf_authenticationmethods: 'publickey'
+sshd__conf_passwordauthentication: 'no'
+sshd__conf_permitemptypasswords: 'no'
+sshd__conf_pubkeyauthentication: 'yes'
+sshd__conf_hostbasedauthentication: 'no'
+sshd__conf_ignorerhosts: 'yes'
+
+sshd__conf_permitrootlogin: 'without-password'
+
+sshd__conf_compression: 'no'
+
+sshd__conf_gatewayports: 'no'
+
+sshd__conf_allowagentforwarding: 'no'
+sshd__conf_allowtcpforwarding: 'no'
+sshd__conf_tcpkeepalive: 'no'
+sshd__conf_clientalivecountmax: '2'
+sshd__conf_clientaliveinterval: '300'
+sshd__conf_permittunnel: 'no'
+
+sshd__conf_usedns: 'no'
+
+sshd__conf_x11forwarding: 'no'
+
+sshd__conf_permituserenvironment: 'no'
+sshd__conf_ignoreuserknownhosts: 'yes'
+
+sshd__conf_strictmodes: 'yes'
+
+sshd__conf_printlastlog: 'yes'
+sshd__conf_printmotd: 'yes'
+sshd__conf_loglevel: 'INFO'
+sshd__conf_syslogfacility: 'AUTHPRIV'
+
+sshd__conf_sftpsubsystem_enabled: 'yes'
+
+sshd__conf_versionaddendum: 'no'
+
+sshd__conf_useprivilegeseparation: 'sandbox'
+
+sshd__conf_ciphers:
+  - 'chacha20-poly1305@openssh.com'
+  - 'aes256-gcm@openssh.com'
+  - 'aes128-gcm@openssh.com'
+  - 'aes256-ctr'
+  - 'aes192-ctr'
+  - 'aes128-ctr'
+
+sshd__conf_kexalgorithms:
+  - 'curve25519-sha256@libssh.org'
+  - 'ecdh-sha2-nistp521'
+  - 'ecdh-sha2-nistp384'
+  - 'ecdh-sha2-nistp256'
+  - 'diffie-hellman-group-exchange-sha256'
+
+sshd__conf_macs:
+  - 'hmac-sha2-512-etm@openssh.com'
+  - 'hmac-sha2-256-etm@openssh.com'
+  - 'umac-128-etm@openssh.com'
+  - 'hmac-sha2-512'
+  - 'hmac-sha2-256'
+  - 'umac-128@openssh.com'
