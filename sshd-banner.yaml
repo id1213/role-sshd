@@ -16,14 +16,13 @@
         mode: 0400
       become: true
 # requires Ansible 2.2
-#    - name: restard sshd thru systemd 
-#      become: true
-#      systemd: 
-#        name: sshd
-#        state: restarted
-# end
-
-    - name: restart sshd
+    - name: restart sshd thru systemd 
       become: true
-      command: systemctl restart sshd.service
+      systemd: 
+        name: sshd
+        state: restarted
+
+#    - name: restart sshd
+#      become: true
+#      command: systemctl restart sshd.service
 ... 
