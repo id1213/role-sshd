@@ -6,4 +6,5 @@
         dest: /etc/ssh/sshd_config
         regexp: ^#Banner none
         replace: Banner /etc/ssh/sshd_banner
+      become: true
 ... 
