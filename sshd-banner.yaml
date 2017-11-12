@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: enable banner in /etc/ssh/sshd_config
+      replace:
+        dest: /etc/ssh/sshd_config
+        regexp: ^#Banner none
+        replace: Banner /etc/ssh/sshd_banner
+... 
