@@ -7,4 +7,12 @@
         regexp: ^#Banner none
         replace: Banner /etc/ssh/sshd_banner
       become: true
+    - name: copy sshd_banner to /etc/ssh/sshd_banner and set file attributes
+      copy:
+        src: banner.txt
+        dest: /etc/ssh/sshd_banner
+        owner: root
+        group: root
+        mode: 0400
+      become: true
 ... 
